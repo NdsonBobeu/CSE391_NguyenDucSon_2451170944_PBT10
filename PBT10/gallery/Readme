@@ -1,0 +1,16 @@
+# 🖼️ Gallery — Bài B3
+
+## API đã dùng
+- **Lorem Picsum** — `https://picsum.photos/v2/list?page=1&limit=20` (miễn phí)
+
+## Cách chạy
+Mở `index.html` trong trình duyệt. Cần Internet.
+
+## Tính năng
+- Load 20 ảnh đầu tiên khi mở trang
+- Infinite scroll: cuộn xuống gần cuối → tự động load 20 ảnh tiếp
+- "Đang tải thêm..." indicator khi đang fetch
+- Lazy loading: ảnh chỉ load khi vào viewport (IntersectionObserver)
+- Click ảnh → mở lightbox (ảnh full size, Esc để đóng)
+- Grid responsive: 4 cột desktop / 2 cột tablet / 1 cột mobile
+- Fade-in animation khi ảnh xuất hiện

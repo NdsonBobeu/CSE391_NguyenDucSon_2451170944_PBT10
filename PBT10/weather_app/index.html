@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌤️ Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <header class="app-header">
+      <h1>☁️ Thời Tiết</h1>
+      <p class="subtitle">Nhập tên thành phố để xem thời tiết</p>
+    </header>
+
+    <!-- Ô tìm kiếm -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="city-input"
+        placeholder="Ví dụ: Hanoi, Paris, Tokyo..."
+        autocomplete="off"
+      />
+      <button id="search-btn">🔍 Tìm</button>
+    </div>
+
+    <!-- Lịch sử tìm kiếm -->
+    <div class="history-section" id="history-section" style="display:none">
+      <h3>🕐 Tìm gần đây</h3>
+      <div id="history-list" class="history-list"></div>
+    </div>
+
+    <!-- Khu vực hiển thị kết quả -->
+    <div id="result-area" class="result-area"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

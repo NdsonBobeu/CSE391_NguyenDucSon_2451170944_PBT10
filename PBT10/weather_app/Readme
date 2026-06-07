@@ -1,0 +1,18 @@
+# 🌤️ Weather App — Bài B1
+
+## API đã dùng
+- **Open-Meteo Geocoding API** — Tìm lat/lon từ tên thành phố (miễn phí, không cần key)
+  - `https://geocoding-api.open-meteo.com/v1/search`
+- **Open-Meteo Forecast API** — Lấy thời tiết từ tọa độ (miễn phí, không cần key)
+  - `https://api.open-meteo.com/v1/forecast`
+
+## Cách chạy
+1. Mở file `index.html` trực tiếp trong trình duyệt
+2. Cần có kết nối Internet để gọi API
+
+## Tính năng
+- Tìm thời tiết theo tên thành phố
+- Hiển thị: Nhiệt độ, Độ ẩm, Tốc độ gió, Mô tả + Icon
+- 3 States: Loading (spinner) → Success (weather card) → Error (thông báo lỗi)
+- Lưu 5 thành phố gần nhất vào LocalStorage
+- Click chip lịch sử để tìm lại nhanh

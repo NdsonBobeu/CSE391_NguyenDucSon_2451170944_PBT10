@@ -1,0 +1,18 @@
+# 📊 Multi-API Dashboard — Bài B4
+
+## APIs đã dùng (4 APIs, gọi song song)
+1. **Open-Meteo** — Thời tiết Hà Nội (miễn phí, không cần key)
+2. **Random User API** — 4 user ngẫu nhiên
+3. **REST Countries** — Thông tin đất nước Việt Nam
+4. **JSONPlaceholder** — 5 bài viết mới nhất
+
+## Cách chạy
+Mở `index.html` trong trình duyệt. Cần Internet.
+
+## Tính năng
+- Gọi 4 APIs song song với Promise.allSettled
+- Mỗi widget có trạng thái riêng (loading skeleton → success/error)
+- 1 API lỗi không ảnh hưởng các widget khác
+- Nút "Refresh All" gọi lại tất cả APIs
+- Hiển thị thời gian fetch (ví dụ: "Tải xong trong 452ms")
+- Layout responsive: 2 cột desktop, 1 cột mobile

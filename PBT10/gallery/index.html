@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🖼️ Infinite Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>🖼️ Infinite Gallery</h1>
+    <p>Cuộn xuống để tải thêm ảnh tự động</p>
+  </header>
+
+  <!-- Grid ảnh -->
+  <main id="gallery" class="gallery"></main>
+
+  <!-- Trigger element: khi element này xuất hiện trong viewport → load thêm -->
+  <div id="load-trigger" class="load-trigger">
+    <div id="load-indicator" class="load-indicator hidden">
+      <div class="dot-spinner">
+        <span></span><span></span><span></span>
+      </div>
+      <span>Đang tải thêm ảnh...</span>
+    </div>
+  </div>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox hidden">
+    <button id="lightbox-close" class="lightbox-close">✕</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+      <div id="lightbox-info" class="lightbox-info"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

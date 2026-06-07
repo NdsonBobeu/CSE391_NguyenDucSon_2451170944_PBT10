@@ -1,0 +1,201 @@
+/* ============================
+   INFINITE GALLERY — style.css
+   ============================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Syne', sans-serif;
+  background: #111;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.site-header {
+  text-align: center;
+  padding: 40px 16px 24px;
+  border-bottom: 1px solid #222;
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.site-header p {
+  color: #666;
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
+/* ── Gallery Grid ── */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);   /* 4 cột desktop */
+  gap: 4px;
+  padding: 4px;
+}
+
+/* Tablet: 2 cột */
+@media (max-width: 768px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile: 1 cột */
+@media (max-width: 480px) {
+  .gallery { grid-template-columns: 1fr; }
+}
+
+/* ── Photo Item ── */
+.photo-item {
+  position: relative;
+  overflow: hidden;
+  background: #1a1a1a;
+  cursor: pointer;
+  aspect-ratio: 1;               /* Luôn vuông */
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Lazy loading: ảnh mờ khi chưa load */
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;                    /* Ẩn ban đầu */
+  transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+/* Khi ảnh đã load (class .loaded được thêm bởi JS) */
+.photo-item img.loaded {
+  opacity: 1;
+}
+
+/* Hover effect */
+.photo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay khi hover */
+.photo-item .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+}
+
+.photo-item:hover .overlay { opacity: 1; }
+
+.overlay-title {
+  font-size: 0.75rem;
+  color: #fff;
+  line-height: 1.3;
+}
+
+/* ── Load indicator (infinite scroll) ── */
+.load-trigger {
+  padding: 32px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.load-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.load-indicator.hidden { display: none; }
+
+/* Dot spinner */
+.dot-spinner {
+  display: flex;
+  gap: 5px;
+}
+
+.dot-spinner span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #555;
+  animation: dotBounce 1s infinite;
+}
+
+.dot-spinner span:nth-child(2) { animation-delay: 0.15s; }
+.dot-spinner span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes dotBounce {
+  0%, 60%, 100% { transform: translateY(0); background: #555; }
+  30%           { transform: translateY(-8px); background: #aaa; }
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+.lightbox.hidden { display: none; }
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 1001;
+}
+
+.lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.lightbox-info {
+  color: #999;
+  font-size: 0.85rem;
+  text-align: center;
+}

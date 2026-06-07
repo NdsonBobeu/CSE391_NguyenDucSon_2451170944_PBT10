@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📊 Multi-API Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <h1>📊 Dashboard</h1>
+        <p class="subtitle">Dữ liệu từ nhiều nguồn API</p>
+      </div>
+      <div class="header-right">
+        <span id="load-time" class="load-time"></span>
+        <button id="refresh-btn" class="btn-refresh">🔄 Refresh All</button>
+      </div>
+    </header>
+
+    <!-- Grid các widget -->
+    <div class="widget-grid">
+
+      <!-- Widget 1: Thời tiết Hà Nội -->
+      <div class="widget" id="widget-weather">
+        <div class="widget-header">
+          <span class="widget-icon">🌤️</span>
+          <h2 class="widget-title">Thời tiết Hà Nội</h2>
+        </div>
+        <div class="widget-body" id="weather-body">
+          <!-- Render bởi JS -->
+        </div>
+      </div>
+
+      <!-- Widget 2: Random Users -->
+      <div class="widget" id="widget-users">
+        <div class="widget-header">
+          <span class="widget-icon">👤</span>
+          <h2 class="widget-title">Random Users</h2>
+        </div>
+        <div class="widget-body" id="users-body">
+          <!-- Render bởi JS -->
+        </div>
+      </div>
+
+      <!-- Widget 3: Vietnam Info -->
+      <div class="widget widget-wide" id="widget-country">
+        <div class="widget-header">
+          <span class="widget-icon">🇻🇳</span>
+          <h2 class="widget-title">Thông tin Việt Nam</h2>
+        </div>
+        <div class="widget-body" id="country-body">
+          <!-- Render bởi JS -->
+        </div>
+      </div>
+
+      <!-- Widget 4: JSONPlaceholder Posts -->
+      <div class="widget widget-wide" id="widget-posts">
+        <div class="widget-header">
+          <span class="widget-icon">📝</span>
+          <h2 class="widget-title">Bài viết mới nhất</h2>
+        </div>
+        <div class="widget-body" id="posts-body">
+          <!-- Render bởi JS -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

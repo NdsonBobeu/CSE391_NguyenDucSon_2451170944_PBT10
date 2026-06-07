@@ -1,0 +1,26 @@
+# 👥 User Directory — Bài B2
+
+## API đã dùng
+- **JSONPlaceholder** — `https://jsonplaceholder.typicode.com/users`
+  - GET /users — Lấy danh sách
+  - POST /users — Tạo mới
+  - PUT /users/:id — Cập nhật
+  - DELETE /users/:id — Xóa
+
+## Cách chạy
+Mở `index.html` trong trình duyệt. Cần Internet.
+
+## Cấu trúc file
+- `index.html` — Giao diện HTML
+- `api.js` — Tầng gọi API (tách riêng)
+- `ui.js` — Tầng render UI (tách riêng)
+- `app.js` — Logic chính kết nối api + ui
+
+## Tính năng
+- READ: Load users từ API, hiển thị dạng card có avatar màu
+- CREATE: Form thêm user mới, POST lên API, thêm vào danh sách ngay (không reload)
+- UPDATE: Click Sửa → form điền sẵn data cũ → PUT lên API
+- DELETE: Confirm dialog → DELETE API → xóa khỏi danh sách
+- SEARCH: Lọc real-time theo tên/email/username (client-side)
+- Skeleton loader khi đang fetch
+- Toast notification khi thành công / thất bại

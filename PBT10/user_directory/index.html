@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>👥 User Directory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <div class="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div>
+        <h1>👥 User Directory</h1>
+        <p class="subtitle">Quản lý danh sách người dùng</p>
+      </div>
+      <button id="add-btn" class="btn btn-primary">＋ Thêm user</button>
+    </header>
+
+    <!-- Thanh tìm kiếm -->
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Tìm theo tên hoặc email..." />
+    </div>
+
+    <!-- Danh sách user -->
+    <div id="user-list" class="user-list">
+      <!-- Render bởi JS -->
+    </div>
+  </div>
+
+  <!-- MODAL: Form thêm / sửa user -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Thêm user mới</h2>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="form-id" />
+
+        <label>Tên <span class="required">*</span></label>
+        <input type="text" id="form-name" placeholder="Nguyễn Văn A" />
+
+        <label>Username <span class="required">*</span></label>
+        <input type="text" id="form-username" placeholder="nguyenvana" />
+
+        <label>Email <span class="required">*</span></label>
+        <input type="email" id="form-email" placeholder="example@email.com" />
+
+        <label>Số điện thoại</label>
+        <input type="text" id="form-phone" placeholder="0901234567" />
+
+        <label>Thành phố</label>
+        <input type="text" id="form-city" placeholder="Hà Nội" />
+
+        <label>Website</label>
+        <input type="text" id="form-website" placeholder="example.com" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancel-btn">Hủy</button>
+        <button class="btn btn-primary" id="save-btn">💾 Lưu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Confirm xóa -->
+  <div id="confirm-overlay" class="modal-overlay hidden">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>Xác nhận xóa</h2>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-msg">Bạn có chắc muốn xóa user này không?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="confirm-cancel">Hủy</button>
+        <button class="btn btn-danger" id="confirm-ok">🗑️ Xóa</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+  <script src="ui.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
